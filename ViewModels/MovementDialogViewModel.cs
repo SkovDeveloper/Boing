@@ -21,8 +21,7 @@ public sealed partial class MovementDialogViewModel : DialogViewModel
     [NotifyPropertyChangedFor(nameof(ConsumptionVisibility))]
     public partial int SelectedMovementTypeIndex { get; set; }
 
-    [ObservableProperty]
-    public partial DateTimeOffset? Date { get; set; } = DateTimeOffset.Now;
+    [ObservableProperty] public partial DateTimeOffset? Date { get; set; } = DateTimeOffset.Now;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(EstimatedTotalText))]
@@ -32,11 +31,12 @@ public sealed partial class MovementDialogViewModel : DialogViewModel
     [NotifyPropertyChangedFor(nameof(EstimatedTotalText))]
     public partial double UnitCost { get; set; }
 
-    [ObservableProperty]
-    public partial ProductionOrder? SelectedOrder { get; set; }
+    [ObservableProperty] public partial ProductionOrder? SelectedOrder { get; set; }
 
     public Visibility PurchaseVisibility => SelectedMovementTypeIndex == 0 ? Visibility.Visible : Visibility.Collapsed;
-    public Visibility ConsumptionVisibility => SelectedMovementTypeIndex == 1 ? Visibility.Visible : Visibility.Collapsed;
+
+    public Visibility ConsumptionVisibility =>
+        SelectedMovementTypeIndex == 1 ? Visibility.Visible : Visibility.Collapsed;
 
     public string EstimatedTotalText
     {
@@ -66,7 +66,8 @@ public sealed partial class MovementDialogViewModel : DialogViewModel
         {
             _movementId = existingPurchase.Id;
             DialogTitle = "Editar compra";
-            DialogCaption = $"{targetMaterial.Name} ({targetMaterial.Unit}) · Al guardar se recalculará toda la tarjeta.";
+            DialogCaption =
+                $"{targetMaterial.Name} ({targetMaterial.Unit}) · Al guardar se recalculará toda la tarjeta.";
             SubmitButtonText = "Guardar cambios";
             IsTypeEditable = false;
             SelectedMovementTypeIndex = 0;
@@ -78,7 +79,8 @@ public sealed partial class MovementDialogViewModel : DialogViewModel
         {
             _movementId = existingConsumption.Id;
             DialogTitle = "Editar consumo";
-            DialogCaption = $"{targetMaterial.Name} ({targetMaterial.Unit}) · Si estaba dividido por capas, se recalculará con la cantidad total.";
+            DialogCaption =
+                $"{targetMaterial.Name} ({targetMaterial.Unit}) · Si estaba dividido por capas, se recalculará con la cantidad total.";
             SubmitButtonText = "Guardar cambios";
             IsTypeEditable = false;
             SelectedMovementTypeIndex = 1;
@@ -91,7 +93,8 @@ public sealed partial class MovementDialogViewModel : DialogViewModel
         {
             _movementId = string.Empty;
             DialogTitle = "Registrar movimiento";
-            DialogCaption = $"{targetMaterial.Name} ({targetMaterial.Unit}) · Agrega una compra o un consumo a la tarjeta de almacén.";
+            DialogCaption =
+                $"{targetMaterial.Name} ({targetMaterial.Unit}) · Agrega una compra o un consumo a la tarjeta de almacén.";
             SubmitButtonText = "Registrar";
             IsTypeEditable = true;
             SelectedMovementTypeIndex = 0;

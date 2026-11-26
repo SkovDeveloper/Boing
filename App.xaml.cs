@@ -32,7 +32,7 @@ public partial class App : Application
         window = MainWindow;
         window.Activate();
     }
-    
+
 
     /// <summary>
     /// Invoked when Navigation to a certain page fails

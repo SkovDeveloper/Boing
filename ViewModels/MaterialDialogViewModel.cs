@@ -13,20 +13,15 @@ public sealed partial class MaterialDialogViewModel : DialogViewModel
 
     public Material? ResultMaterial { get; private set; }
 
-    [ObservableProperty]
-    public partial string Name { get; set; } = string.Empty;
+    [ObservableProperty] public partial string Name { get; set; } = string.Empty;
 
-    [ObservableProperty]
-    public partial string Unit { get; set; } = "kg";
+    [ObservableProperty] public partial string Unit { get; set; } = "kg";
 
-    [ObservableProperty]
-    public partial int SelectedClassificationIndex { get; set; }
+    [ObservableProperty] public partial int SelectedClassificationIndex { get; set; }
 
-    [ObservableProperty]
-    public partial double InitialQuantity { get; set; }
+    [ObservableProperty] public partial double InitialQuantity { get; set; }
 
-    [ObservableProperty]
-    public partial double InitialUnitCost { get; set; }
+    [ObservableProperty] public partial double InitialUnitCost { get; set; }
 
     public MaterialDialogViewModel(Material? existingMaterial = null)
     {

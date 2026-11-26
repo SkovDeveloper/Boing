@@ -5,7 +5,10 @@ public sealed partial class OverheadExpenseDialogViewModel : DialogViewModel
     private readonly string _expenseId;
 
     public IReadOnlyList<string> AllocationTypeOptions { get; } = ["Por base métrica", "Asignación directa"];
-    public IReadOnlyList<string> MetricBaseOptions { get; } = ["Metros cuadrados", "Kilowatts", "Horas-máquina", "Materia prima"];
+
+    public IReadOnlyList<string> MetricBaseOptions { get; } =
+        ["Metros cuadrados", "Kilowatts", "Horas-máquina", "Materia prima"];
+
     public IReadOnlyList<Department> Departments { get; }
 
     public string DialogTitle { get; }
@@ -14,22 +17,18 @@ public sealed partial class OverheadExpenseDialogViewModel : DialogViewModel
 
     public OverheadExpense? ResultExpense { get; private set; }
 
-    [ObservableProperty]
-    public partial string Concept { get; set; } = string.Empty;
+    [ObservableProperty] public partial string Concept { get; set; } = string.Empty;
 
-    [ObservableProperty]
-    public partial double Amount { get; set; }
+    [ObservableProperty] public partial double Amount { get; set; }
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(MetricVisibility))]
     [NotifyPropertyChangedFor(nameof(DirectVisibility))]
     public partial int SelectedAllocationTypeIndex { get; set; }
 
-    [ObservableProperty]
-    public partial string AllocationBaseKey { get; set; } = "Metros cuadrados";
+    [ObservableProperty] public partial string AllocationBaseKey { get; set; } = "Metros cuadrados";
 
-    [ObservableProperty]
-    public partial Department? SelectedTargetDepartment { get; set; }
+    [ObservableProperty] public partial Department? SelectedTargetDepartment { get; set; }
 
     public Visibility MetricVisibility => SelectedAllocationTypeIndex == 0 ? Visibility.Visible : Visibility.Collapsed;
     public Visibility DirectVisibility => SelectedAllocationTypeIndex == 1 ? Visibility.Visible : Visibility.Collapsed;
@@ -45,7 +44,8 @@ public sealed partial class OverheadExpenseDialogViewModel : DialogViewModel
         {
             _expenseId = $"GIF-{Guid.NewGuid().ToString("N")[..6].ToUpperInvariant()}";
             DialogTitle = "Nuevo gasto indirecto";
-            DialogCaption = "Registra un gasto indirecto de fabricación (renta, energía, nómina indirecta, etc.) para el prorrateo primario.";
+            DialogCaption =
+                "Registra un gasto indirecto de fabricación (renta, energía, nómina indirecta, etc.) para el prorrateo primario.";
             SubmitButtonText = "Agregar";
         }
         else
@@ -61,8 +61,9 @@ public sealed partial class OverheadExpenseDialogViewModel : DialogViewModel
             AllocationBaseKey = string.IsNullOrWhiteSpace(existingExpense.AllocationBaseKey)
                 ? "Metros cuadrados"
                 : existingExpense.AllocationBaseKey;
-            SelectedTargetDepartment = availableDepartments.FirstOrDefault(d => d.Id == existingExpense.TargetDepartmentId)
-                                       ?? availableDepartments.FirstOrDefault();
+            SelectedTargetDepartment =
+                availableDepartments.FirstOrDefault(d => d.Id == existingExpense.TargetDepartmentId)
+                ?? availableDepartments.FirstOrDefault();
         }
     }
 

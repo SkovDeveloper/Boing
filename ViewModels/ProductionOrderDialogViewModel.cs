@@ -7,8 +7,7 @@ public sealed partial class LaborEntryInputItem : ObservableObject
     public string DepartmentId { get; init; } = string.Empty;
     public string DepartmentName { get; init; } = string.Empty;
 
-    [ObservableProperty]
-    public partial double Hours { get; set; }
+    [ObservableProperty] public partial double Hours { get; set; }
 }
 
 public sealed partial class ProductionOrderDialogViewModel : DialogViewModel
@@ -24,21 +23,17 @@ public sealed partial class ProductionOrderDialogViewModel : DialogViewModel
 
     public ProductionOrder? ResultOrder { get; private set; }
 
-    [ObservableProperty]
-    public partial string Code { get; set; } = string.Empty;
+    [ObservableProperty] public partial string Code { get; set; } = string.Empty;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(SoldUnitsVisibility))]
     public partial int SelectedStatusIndex { get; set; }
 
-    [ObservableProperty]
-    public partial double InitialWorkInProcessCost { get; set; }
+    [ObservableProperty] public partial double InitialWorkInProcessCost { get; set; }
 
-    [ObservableProperty]
-    public partial double ProducedUnits { get; set; }
+    [ObservableProperty] public partial double ProducedUnits { get; set; }
 
-    [ObservableProperty]
-    public partial double SoldUnits { get; set; }
+    [ObservableProperty] public partial double SoldUnits { get; set; }
 
     public Visibility SoldUnitsVisibility => SelectedStatusIndex == 0 ? Visibility.Visible : Visibility.Collapsed;
 
@@ -51,7 +46,8 @@ public sealed partial class ProductionOrderDialogViewModel : DialogViewModel
         {
             _orderId = $"ORD-{Guid.NewGuid().ToString("N")[..6].ToUpperInvariant()}";
             DialogTitle = "Nueva orden de producción";
-            DialogCaption = "Define el estado, unidades producidas/vendidas y horas de mano de obra directa por departamento.";
+            DialogCaption =
+                "Define el estado, unidades producidas/vendidas y horas de mano de obra directa por departamento.";
             SubmitButtonText = "Crear orden";
             Code = defaultCode;
         }
@@ -108,7 +104,8 @@ public sealed partial class ProductionOrderDialogViewModel : DialogViewModel
 
         if (isFinished && (finalSoldUnits < 0 || finalSoldUnits > ProducedUnits))
         {
-            ShowError("Unidades vendidas inválidas", "Las unidades vendidas deben estar entre 0 y las unidades producidas.");
+            ShowError("Unidades vendidas inválidas",
+                "Las unidades vendidas deben estar entre 0 y las unidades producidas.");
             return Task.CompletedTask;
         }
 

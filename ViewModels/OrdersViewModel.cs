@@ -10,11 +10,9 @@ public sealed partial class OrdersViewModel : ObservableObject
 
     public ObservableCollection<OrderCostSummary> OrderSummaries { get; } = [];
 
-    [ObservableProperty]
-    private OrderCostSummary? _selectedOrderSummary;
+    [ObservableProperty] private OrderCostSummary? _selectedOrderSummary;
 
-    [ObservableProperty]
-    private ProductionOrder? _selectedOrder;
+    [ObservableProperty] private ProductionOrder? _selectedOrder;
 
     public OrdersViewModel(
         IProjectStateService stateService,

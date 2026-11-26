@@ -31,5 +31,29 @@ public sealed class ProjectStateService : IProjectStateService
     {
         CurrentResult = _costEngine.CalculateAll(CurrentProject);
         StateChanged?.Invoke(this, EventArgs.Empty);
+
+        ScheduleAutoSave();
+    }
+
+    private CancellationTokenSource? _autoSaveCts;
+
+    private void ScheduleAutoSave()
+    {
+        _autoSaveCts?.Cancel();
+        _autoSaveCts?.Dispose();
+        _autoSaveCts = new CancellationTokenSource();
+        var token = _autoSaveCts.Token;
+
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                await Task.Delay(500, token);
+                await _storageService.SaveAutoSaveAsync(CurrentProject, token);
+            }
+            catch (OperationCanceledException)
+            {
+            }
+        }, token);
     }
 }

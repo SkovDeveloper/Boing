@@ -3,23 +3,21 @@ namespace Boing.ViewModels;
 public sealed partial class StatementMetadataDialogViewModel : DialogViewModel
 {
     public string DialogTitle => "Encabezado y firmas";
-    public string DialogCaption => "Configura el nombre de la empresa, el periodo contable y las firmas de los estados financieros.";
+
+    public string DialogCaption =>
+        "Configura el nombre de la empresa, el periodo contable y las firmas de los estados financieros.";
+
     public string SubmitButtonText => "Guardar";
 
-    [ObservableProperty]
-    public partial string CompanyName { get; set; } = string.Empty;
+    [ObservableProperty] public partial string CompanyName { get; set; } = string.Empty;
 
-    [ObservableProperty]
-    public partial DateTimeOffset? PeriodStart { get; set; }
+    [ObservableProperty] public partial DateTimeOffset? PeriodStart { get; set; }
 
-    [ObservableProperty]
-    public partial DateTimeOffset? PeriodEnd { get; set; }
+    [ObservableProperty] public partial DateTimeOffset? PeriodEnd { get; set; }
 
-    [ObservableProperty]
-    public partial string PreparedBy { get; set; } = string.Empty;
+    [ObservableProperty] public partial string PreparedBy { get; set; } = string.Empty;
 
-    [ObservableProperty]
-    public partial string AuthorizedBy { get; set; } = string.Empty;
+    [ObservableProperty] public partial string AuthorizedBy { get; set; } = string.Empty;
 
     public StatementMetadataDialogViewModel(
         string currentCompanyName,

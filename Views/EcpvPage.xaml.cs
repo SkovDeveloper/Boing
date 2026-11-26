@@ -86,6 +86,7 @@ public sealed partial class EcpvPage : Page, IDynamicCommandPage
             {
                 polyline.Points.Add(new Windows.Foundation.Point(point.X, point.Y));
             }
+
             canvas.Children.Add(polyline);
         }
     }
@@ -172,7 +173,8 @@ public sealed partial class EcpvPage : Page, IDynamicCommandPage
     private async void OnEditMetadataClick(object sender, RoutedEventArgs e)
     {
         var s = ViewModel.Settings;
-        var dialog = new StatementMetadataDialog(s.CompanyName, s.PeriodStart, s.PeriodEnd, s.PreparedBy, s.AuthorizedBy);
+        var dialog =
+            new StatementMetadataDialog(s.CompanyName, s.PeriodStart, s.PeriodEnd, s.PreparedBy, s.AuthorizedBy);
         await _dialogService.ShowDialogAsync(dialog);
 
         if (dialog.ViewModel.IsOperationSuccessful)

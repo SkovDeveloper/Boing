@@ -120,73 +120,73 @@
                 <FontIcon Glyph="&#xE9F9;" />
             </controls:SettingsExpander.HeaderIcon>
 
-           <controls:SettingsExpander.Items>
-    <controls:SettingsCard
-        ContentAlignment="Vertical"
-        HorizontalContentAlignment="Stretch">
-        <ScrollViewer
-            HorizontalScrollBarVisibility="Auto"
-            VerticalScrollMode="Disabled"
-            VerticalScrollBarVisibility="Disabled">
-            <Grid x:Name="CupMatrixGrid" Padding="12,8" ColumnSpacing="20" RowSpacing="4" />
-        </ScrollViewer>
-    </controls:SettingsCard>
+            <controls:SettingsExpander.Items>
+                <controls:SettingsCard
+                    ContentAlignment="Vertical"
+                    HorizontalContentAlignment="Stretch">
+                    <ScrollViewer
+                        HorizontalScrollBarVisibility="Auto"
+                        VerticalScrollMode="Disabled"
+                        VerticalScrollBarVisibility="Disabled">
+                        <Grid x:Name="CupMatrixGrid" Padding="12,8" ColumnSpacing="20" RowSpacing="4" />
+                    </ScrollViewer>
+                </controls:SettingsCard>
 
-    <controls:SettingsCard
-        ContentAlignment="Vertical"
-        HorizontalContentAlignment="Stretch">
-        <ScrollViewer
-            HorizontalScrollBarVisibility="Auto"
-            VerticalScrollMode="Disabled"
-            VerticalScrollBarVisibility="Disabled">
-            <Grid x:Name="CupTotalProcessedGrid" Padding="12,4" ColumnSpacing="20" />
-        </ScrollViewer>
-    </controls:SettingsCard>
+                <controls:SettingsCard
+                    ContentAlignment="Vertical"
+                    HorizontalContentAlignment="Stretch">
+                    <ScrollViewer
+                        HorizontalScrollBarVisibility="Auto"
+                        VerticalScrollMode="Disabled"
+                        VerticalScrollBarVisibility="Disabled">
+                        <Grid x:Name="CupTotalProcessedGrid" Padding="12,4" ColumnSpacing="20" />
+                    </ScrollViewer>
+                </controls:SettingsCard>
 
-    <controls:SettingsCard
-        ContentAlignment="Vertical"
-        HorizontalContentAlignment="Stretch">
-        <ScrollViewer
-            HorizontalScrollBarVisibility="Auto"
-            VerticalScrollMode="Disabled"
-            VerticalScrollBarVisibility="Disabled">
-            <Grid x:Name="CupFinishedUnitsGrid" Padding="12,4" ColumnSpacing="20" />
-        </ScrollViewer>
-    </controls:SettingsCard>
+                <controls:SettingsCard
+                    ContentAlignment="Vertical"
+                    HorizontalContentAlignment="Stretch">
+                    <ScrollViewer
+                        HorizontalScrollBarVisibility="Auto"
+                        VerticalScrollMode="Disabled"
+                        VerticalScrollBarVisibility="Disabled">
+                        <Grid x:Name="CupFinishedUnitsGrid" Padding="12,4" ColumnSpacing="20" />
+                    </ScrollViewer>
+                </controls:SettingsCard>
 
-    <controls:SettingsCard
-        ContentAlignment="Vertical"
-        HorizontalContentAlignment="Stretch">
-        <ScrollViewer
-            HorizontalScrollBarVisibility="Auto"
-            VerticalScrollMode="Disabled"
-            VerticalScrollBarVisibility="Disabled">
-            <Grid x:Name="CupUnitCostGrid" Padding="12,4" ColumnSpacing="20" />
-        </ScrollViewer>
-    </controls:SettingsCard>
+                <controls:SettingsCard
+                    ContentAlignment="Vertical"
+                    HorizontalContentAlignment="Stretch">
+                    <ScrollViewer
+                        HorizontalScrollBarVisibility="Auto"
+                        VerticalScrollMode="Disabled"
+                        VerticalScrollBarVisibility="Disabled">
+                        <Grid x:Name="CupUnitCostGrid" Padding="12,4" ColumnSpacing="20" />
+                    </ScrollViewer>
+                </controls:SettingsCard>
 
-    <controls:SettingsCard
-        ContentAlignment="Vertical"
-        HorizontalContentAlignment="Stretch">
-        <ScrollViewer
-            HorizontalScrollBarVisibility="Auto"
-            VerticalScrollMode="Disabled"
-            VerticalScrollBarVisibility="Disabled">
-            <Grid x:Name="CupSalePriceGrid" Padding="12,4" ColumnSpacing="20" />
-        </ScrollViewer>
-    </controls:SettingsCard>
+                <controls:SettingsCard
+                    ContentAlignment="Vertical"
+                    HorizontalContentAlignment="Stretch">
+                    <ScrollViewer
+                        HorizontalScrollBarVisibility="Auto"
+                        VerticalScrollMode="Disabled"
+                        VerticalScrollBarVisibility="Disabled">
+                        <Grid x:Name="CupSalePriceGrid" Padding="12,4" ColumnSpacing="20" />
+                    </ScrollViewer>
+                </controls:SettingsCard>
 
-    <controls:SettingsCard
-        ContentAlignment="Vertical"
-        HorizontalContentAlignment="Stretch">
-        <ScrollViewer
-            HorizontalScrollBarVisibility="Auto"
-            VerticalScrollMode="Disabled"
-            VerticalScrollBarVisibility="Disabled">
-            <Grid x:Name="CupIfppGrid" Padding="12,4" ColumnSpacing="20" />
-        </ScrollViewer>
-    </controls:SettingsCard>
-</controls:SettingsExpander.Items>
+                <controls:SettingsCard
+                    ContentAlignment="Vertical"
+                    HorizontalContentAlignment="Stretch">
+                    <ScrollViewer
+                        HorizontalScrollBarVisibility="Auto"
+                        VerticalScrollMode="Disabled"
+                        VerticalScrollBarVisibility="Disabled">
+                        <Grid x:Name="CupIfppGrid" Padding="12,4" ColumnSpacing="20" />
+                    </ScrollViewer>
+                </controls:SettingsCard>
+            </controls:SettingsExpander.Items>
         </controls:SettingsExpander>
     </StackPanel>
 </Page>

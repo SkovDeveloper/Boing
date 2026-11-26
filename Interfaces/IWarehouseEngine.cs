@@ -9,5 +9,5 @@ public interface IWarehouseEngine
         IEnumerable<Purchase> purchases,
         IEnumerable<Consumption> consumptions,
         ValuationMethod method
-        );
+    );
 }

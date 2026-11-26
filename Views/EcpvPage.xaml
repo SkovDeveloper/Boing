@@ -7,9 +7,14 @@
     <StackPanel Spacing="24" Margin="0,0,48,48">
         <StackPanel Spacing="8" Visibility="{x:Bind ViewModel.EcpvVisibility, Mode=OneWay}">
             <StackPanel Spacing="2" Margin="4,0,0,8">
-                <TextBlock Text="{x:Bind ViewModel.CompanyHeaderText, Mode=OneWay}" Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                <TextBlock Text="Estado de costo de producción y de lo vendido" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
-                <TextBlock Text="{x:Bind ViewModel.PeriodHeaderText, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                <TextBlock Text="{x:Bind ViewModel.CompanyHeaderText, Mode=OneWay}"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                <TextBlock Text="Estado de costo de producción y de lo vendido"
+                           Style="{ThemeResource CaptionTextBlockStyle}"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                <TextBlock Text="{x:Bind ViewModel.PeriodHeaderText, Mode=OneWay}"
+                           Style="{ThemeResource CaptionTextBlockStyle}"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
             </StackPanel>
 
             <controls:SettingsExpander
@@ -175,9 +180,13 @@
 
         <StackPanel Spacing="8" Visibility="{x:Bind ViewModel.ErVisibility, Mode=OneWay}">
             <StackPanel Spacing="2" Margin="4,0,0,8">
-                <TextBlock Text="{x:Bind ViewModel.CompanyHeaderText, Mode=OneWay}" Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                <TextBlock Text="Estado de resultados" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
-                <TextBlock Text="{x:Bind ViewModel.PeriodHeaderText, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                <TextBlock Text="{x:Bind ViewModel.CompanyHeaderText, Mode=OneWay}"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                <TextBlock Text="Estado de resultados" Style="{ThemeResource CaptionTextBlockStyle}"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                <TextBlock Text="{x:Bind ViewModel.PeriodHeaderText, Mode=OneWay}"
+                           Style="{ThemeResource CaptionTextBlockStyle}"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
             </StackPanel>
 
             <controls:SettingsExpander
@@ -277,7 +286,8 @@
                     </Grid>
                     <Border Height="1" Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
                     <TextBlock Text="{x:Bind ViewModel.PreparedByDisplay, Mode=OneWay}" HorizontalAlignment="Center" />
-                    <TextBlock Text="Elaboró" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" HorizontalAlignment="Center" />
+                    <TextBlock Text="Elaboró" Style="{ThemeResource CaptionTextBlockStyle}"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" HorizontalAlignment="Center" />
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" Spacing="6" HorizontalAlignment="Center" Width="280">
@@ -303,7 +313,8 @@
                     </Grid>
                     <Border Height="1" Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
                     <TextBlock Text="{x:Bind ViewModel.AuthorizedByDisplay, Mode=OneWay}" HorizontalAlignment="Center" />
-                    <TextBlock Text="Autorizó" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" HorizontalAlignment="Center" />
+                    <TextBlock Text="Autorizó" Style="{ThemeResource CaptionTextBlockStyle}"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" HorizontalAlignment="Center" />
                 </StackPanel>
             </Grid>
         </controls:SettingsCard>

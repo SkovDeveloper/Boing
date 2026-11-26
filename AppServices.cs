@@ -23,7 +23,7 @@ public static class AppServices
         Services.AddSingleton<IDialogService, DialogService>();
         Services.AddSingleton<IFilePickerService, FilePickerService>();
         Services.AddSingleton<StatementsViewModel>();
-        
+
         Services.AddSingleton<MainViewModel>();
         Services.AddSingleton<OverviewViewModel>();
         Services.AddSingleton<WarehouseViewModel>();

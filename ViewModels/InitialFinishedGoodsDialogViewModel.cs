@@ -3,13 +3,15 @@ namespace Boing.ViewModels;
 public sealed partial class InitialFinishedGoodsDialogViewModel : DialogViewModel
 {
     public string DialogTitle => "Inventario inicial de artículos terminados";
-    public string DialogCaption => "Define el saldo inicial de artículos terminados del periodo para el cálculo del costo de lo vendido.";
+
+    public string DialogCaption =>
+        "Define el saldo inicial de artículos terminados del periodo para el cálculo del costo de lo vendido.";
+
     public string SubmitButtonText => "Guardar";
 
     public decimal ResultAmount { get; private set; }
 
-    [ObservableProperty]
-    public partial double Amount { get; set; }
+    [ObservableProperty] public partial double Amount { get; set; }
 
     public InitialFinishedGoodsDialogViewModel(decimal currentAmount)
     {

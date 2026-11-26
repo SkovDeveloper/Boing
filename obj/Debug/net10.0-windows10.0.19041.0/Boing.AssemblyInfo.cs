@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Boing")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc3c11aea2e4a2cef4a4c7aab84af1f67807df22")]
 [assembly: System.Reflection.AssemblyProductAttribute("Boing")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Boing")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

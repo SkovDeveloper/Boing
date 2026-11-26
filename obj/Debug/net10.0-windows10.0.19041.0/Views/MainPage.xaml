@@ -17,12 +17,12 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Spacing="4" VerticalAlignment="Center">
-                <TextBlock x:ConnectionId='9'
+                <TextBlock x:ConnectionId='13'
                     x:Name="HeaderTitle"
                     Style="{ThemeResource TitleTextBlockStyle}"
                     Text="Tarjetas de almacén"
                     VerticalAlignment="Center" />
-                <TextBlock x:ConnectionId='10'
+                <TextBlock x:ConnectionId='14'
                     x:Name="HeaderSubtitle"
                     Style="{ThemeResource BodyTextBlockStyle}"
                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
@@ -86,6 +86,43 @@
                     </AppBarButton>
 
                     <AppBarButton x:ConnectionId='8'
+                        x:Name="NavFileButton"
+                        Label="Archivo"
+                        ToolTipService.ToolTip="Guardar o abrir proyecto">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xE8E5;" />
+                        </AppBarButton.Icon>
+
+                        <AppBarButton.Flyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem x:ConnectionId='10'
+                                    Text="Abrir proyecto..."
+                                                              >
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xE8E5;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
+                                <MenuFlyoutItem x:ConnectionId='11'
+                                    Text="Guardar"
+                                                              >
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xE74E;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
+                                <MenuFlyoutItem x:ConnectionId='12'
+                                    Text="Guardar como..."
+                                                                >
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xE792;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+                            </MenuFlyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
+                    
+                    <AppBarButton x:ConnectionId='9'
                         Label="Créditos"
                         ToolTipService.ToolTip="Acerca de Boing de Mango"
                                               >

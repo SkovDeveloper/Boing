@@ -50,7 +50,8 @@ public sealed class CostEngine : ICostEngine
             });
 
             var appliedOverheadCost = appliedOverheadLookup.GetValueOrDefault(order.Id, 0m);
-            var totalProductionCost = order.InitialWorkInProcessCost + directMaterialCost + directLaborCost + appliedOverheadCost;
+            var totalProductionCost = order.InitialWorkInProcessCost + directMaterialCost + directLaborCost +
+                                      appliedOverheadCost;
             var unitProductionCost = order.ProducedUnits > 0m ? totalProductionCost / order.ProducedUnits : 0m;
 
             var unitSalePrice = project.PricingMode == PricingMode.MarkupPercentage

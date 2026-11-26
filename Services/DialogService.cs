@@ -32,7 +32,8 @@ public sealed class DialogService : IDialogService
         return ShowDialogAsync(dialog);
     }
 
-    public async Task<bool> ShowConfirmationAsync(string title, string message, string confirmText = "Confirmar", string cancelText = "Cancelar")
+    public async Task<bool> ShowConfirmationAsync(string title, string message, string confirmText = "Confirmar",
+        string cancelText = "Cancelar")
     {
         var dialog = new ContentDialog
         {

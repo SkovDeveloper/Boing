@@ -7,8 +7,7 @@ public sealed partial class NavigationService : ObservableObject, INavigationSer
 {
     private Frame? _frame;
 
-    [ObservableProperty]
-    public partial bool CanGoBack { get; private set; }
+    [ObservableProperty] public partial bool CanGoBack { get; private set; }
 
     public void Initialize(Frame frame)
     {

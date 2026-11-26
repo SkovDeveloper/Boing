@@ -105,4 +105,61 @@ public sealed partial class MainPage
             DynamicCommandBar.PrimaryCommands.Add(element);
         }
     }
+
+    private string? _currentFilePath;
+
+    private async void OnOpenProjectClick(object sender, RoutedEventArgs e)
+    {
+        var picker = AppServices.GetService<IFilePickerService>();
+        var storage = AppServices.GetService<IProjectStorageService>();
+        var state = AppServices.GetService<IProjectStateService>();
+
+        var path = await picker.PickOpenFileAsync([".boing", ".json"]);
+        if (string.IsNullOrWhiteSpace(path))
+        {
+            return;
+        }
+
+        var loaded = await storage.LoadAsync<CostProject>(path);
+        if (loaded is null)
+        {
+            return;
+        }
+
+        _currentFilePath = path;
+        state.LoadProject(loaded);
+    }
+
+    private async void OnSaveProjectClick(object sender, RoutedEventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(_currentFilePath))
+        {
+            await SaveAsAsync();
+            return;
+        }
+
+        var storage = AppServices.GetService<IProjectStorageService>();
+        var state = AppServices.GetService<IProjectStateService>();
+        await storage.SaveAsync(_currentFilePath, state.CurrentProject);
+    }
+
+    private async void OnSaveProjectAsClick(object sender, RoutedEventArgs e) =>
+        await SaveAsAsync();
+
+    private async Task SaveAsAsync()
+    {
+        var picker = AppServices.GetService<IFilePickerService>();
+        var storage = AppServices.GetService<IProjectStorageService>();
+        var state = AppServices.GetService<IProjectStateService>();
+
+        var suggestedName = state.CurrentProject.StatementSettings.CompanyName;
+        var path = await picker.PickSaveFileAsync(suggestedName, "Proyecto Boing", ".boing");
+        if (string.IsNullOrWhiteSpace(path))
+        {
+            return;
+        }
+
+        _currentFilePath = path;
+        await storage.SaveAsync(path, state.CurrentProject);
+    }
 }

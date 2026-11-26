@@ -179,3 +179,4 @@ C:\Projects\RiderProjects\SkovDeveloper\Boing\obj\Debug\net10.0-windows10.0.1904
 C:\Projects\RiderProjects\SkovDeveloper\Boing\obj\Debug\net10.0-windows10.0.19041.0\Dialogs\CreditsDialog.g.cs
 C:\Projects\RiderProjects\SkovDeveloper\Boing\obj\Debug\net10.0-windows10.0.19041.0\Dialogs\CreditsDialog.xaml
 C:\Projects\RiderProjects\SkovDeveloper\Boing\obj\Debug\net10.0-windows10.0.19041.0\Dialogs\CreditsDialog.xbf
+C:\Projects\RiderProjects\SkovDeveloper\Boing\obj\Debug\net10.0-windows10.0.19041.0\Boing.sourcelink.json

@@ -505,7 +505,7 @@ public sealed partial class WarehousePage : IDynamicCommandPage
         {
             return;
         }
-        
+
         ViewModel.DeleteMaterials(_selectedMaterialIds.ToList());
         _selectedMaterialIds.Clear();
         _isSelectionMode = false;

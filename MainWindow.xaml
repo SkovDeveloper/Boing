@@ -26,9 +26,9 @@
                   IsBackButtonEnabled="{x:Bind NavigationService.CanGoBack, Mode=OneWay}"
                   IsPaneToggleButtonVisible="False"
                   BackRequested="TitleBarBackRequested">
-            
+
             <TitleBar.IconSource>
-            <ImageIconSource ImageSource="ms-appx:///Assets/ApplicationImages/TaskBarIcon.png" />
+                <ImageIconSource ImageSource="ms-appx:///Assets/ApplicationImages/TaskBarIcon.png" />
             </TitleBar.IconSource>
             <TitleBar.RightHeader>
                 <Rectangle Height="30" />
@@ -36,8 +36,6 @@
         </TitleBar>
 
 
-
-  
         <Frame Grid.Row="1" x:Name="ContentFrame">
 
             <Frame.ContentTransitions>

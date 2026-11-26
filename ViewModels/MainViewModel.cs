@@ -7,14 +7,11 @@ public sealed partial class MainViewModel : ObservableObject
     private readonly IFilePickerService _filePickerService;
     private readonly IDialogService _dialogService;
 
-    [ObservableProperty]
-    private string _productName = string.Empty;
+    [ObservableProperty] private string _productName = string.Empty;
 
-    [ObservableProperty]
-    private string _periodName = string.Empty;
+    [ObservableProperty] private string _periodName = string.Empty;
 
-    [ObservableProperty]
-    private string _valuationMethodLabel = string.Empty;
+    [ObservableProperty] private string _valuationMethodLabel = string.Empty;
 
     public MainViewModel(
         IProjectStateService stateService,
@@ -42,14 +39,20 @@ public sealed partial class MainViewModel : ObservableObject
             return;
         }
 
-        var loaded = await _storageService.LoadAsync(path);
+        var loaded = await _storageService.LoadAsync<CostProject>(path);
         if (loaded is null)
         {
-            await _dialogService.ShowMessageAsync("Error", "No se pudo cargar el archivo JSON seleccionado.");
+            await _dialogService.ShowMessageAsync("Error", "No se pudo cargar el archivo seleccionado.");
             return;
         }
 
         _stateService.LoadProject(loaded);
+    }
+
+    private async Task _StorageServiceSaveAsync(string path)
+    {
+        await _storageService.SaveAsync(path, _stateService.CurrentProject);
+        await _dialogService.ShowMessageAsync("Guardado", "El escenario se guardó correctamente.");
     }
 
     [RelayCommand]
@@ -62,12 +65,6 @@ public sealed partial class MainViewModel : ObservableObject
         }
 
         await _StorageServiceSaveAsync(path);
-    }
-
-    private async Task _StorageServiceSaveAsync(string path)
-    {
-        await _storageService.SaveAsync(_stateService.CurrentProject, path);
-        await _dialogService.ShowMessageAsync("Guardado", "El escenario se guardó correctamente.");
     }
 
     [RelayCommand]

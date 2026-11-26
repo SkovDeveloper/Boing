@@ -3,7 +3,7 @@ namespace Boing.Models;
 public sealed class CostProject
 {
     public StatementSettings StatementSettings { get; set; } = new();
-    
+
     public string ProductName { get; set; } = string.Empty;
     public string PeriodName { get; set; } = string.Empty;
     public ValuationMethod ValuationMethod { get; set; } = ValuationMethod.Fifo;

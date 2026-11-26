@@ -1,3 +1,4 @@
+using Boing.Interfaces;
 using Windows.Storage.Pickers;
 using WinRT.Interop;
 
@@ -5,29 +6,54 @@ namespace Boing.Services;
 
 public sealed class FilePickerService : IFilePickerService
 {
-    private nint _windowHandle;
+    public Task<string?> PickOpenJsonPathAsync() =>
+        PickOpenFileAsync([".boing", ".json"]);
 
-    public void Initialize(nint windowHandle) =>
-        _windowHandle = windowHandle;
+    public Task<string?> PickSaveJsonPathAsync(string suggestedFileName = "Boing de Mango") =>
+        PickSaveFileAsync(suggestedFileName, "Proyecto Boing", ".boing");
 
-    public async Task<string?> PickOpenJsonPathAsync()
+    public async Task<string?> PickOpenFileAsync(IReadOnlyList<string> fileTypes)
     {
-        var picker = new FileOpenPicker();
-        picker.FileTypeFilter.Add(".json");
-        InitializeWithWindow.Initialize(picker, _windowHandle);
+        if (MainWindow.Current is null)
+        {
+            return null;
+        }
+
+        var picker = new FileOpenPicker
+        {
+            ViewMode = PickerViewMode.List,
+            SuggestedStartLocation = PickerLocationId.DocumentsLibrary
+        };
+
+        foreach (var fileType in fileTypes)
+        {
+            picker.FileTypeFilter.Add(fileType);
+        }
+
+        var hwnd = WindowNative.GetWindowHandle(MainWindow.Current);
+        InitializeWithWindow.Initialize(picker, hwnd);
 
         var file = await picker.PickSingleFileAsync();
         return file?.Path;
     }
 
-    public async Task<string?> PickSaveJsonPathAsync(string suggestedFileName)
+    public async Task<string?> PickSaveFileAsync(string suggestedFileName, string fileTypeLabel, string extension)
     {
+        if (MainWindow.Current is null)
+        {
+            return null;
+        }
+
         var picker = new FileSavePicker
         {
+            SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
             SuggestedFileName = suggestedFileName
         };
-        picker.FileTypeChoices.Add("JSON File", [".json"]);
-        InitializeWithWindow.Initialize(picker, _windowHandle);
+
+        picker.FileTypeChoices.Add(fileTypeLabel, [extension]);
+
+        var hwnd = WindowNative.GetWindowHandle(MainWindow.Current);
+        InitializeWithWindow.Initialize(picker, hwnd);
 
         var file = await picker.PickSaveFileAsync();
         return file?.Path;

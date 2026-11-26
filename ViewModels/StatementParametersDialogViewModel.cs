@@ -3,17 +3,17 @@ namespace Boing.ViewModels;
 public sealed partial class StatementParametersDialogViewModel : DialogViewModel
 {
     public string DialogTitle => "Parámetros de estados financieros";
-    public string DialogCaption => "Ajusta el inventario inicial de artículos terminados y los gastos de operación del periodo.";
+
+    public string DialogCaption =>
+        "Ajusta el inventario inicial de artículos terminados y los gastos de operación del periodo.";
+
     public string SubmitButtonText => "Guardar";
 
-    [ObservableProperty]
-    public partial double InitialFinishedGoods { get; set; }
+    [ObservableProperty] public partial double InitialFinishedGoods { get; set; }
 
-    [ObservableProperty]
-    public partial double SellingExpenses { get; set; }
+    [ObservableProperty] public partial double SellingExpenses { get; set; }
 
-    [ObservableProperty]
-    public partial double AdminExpenses { get; set; }
+    [ObservableProperty] public partial double AdminExpenses { get; set; }
 
     public StatementParametersDialogViewModel(decimal currentInitialFg, decimal currentSelling, decimal currentAdmin)
     {
@@ -38,7 +38,8 @@ public sealed partial class StatementParametersDialogViewModel : DialogViewModel
 
         if (double.IsNaN(AdminExpenses) || AdminExpenses < 0)
         {
-            ShowError("Gastos de administración inválidos", "Los gastos de administración deben ser mayores o iguales a cero.");
+            ShowError("Gastos de administración inválidos",
+                "Los gastos de administración deben ser mayores o iguales a cero.");
             return Task.CompletedTask;
         }
 

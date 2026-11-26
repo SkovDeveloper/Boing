@@ -86,6 +86,43 @@
                     </AppBarButton>
 
                     <AppBarButton
+                        x:Name="NavFileButton"
+                        Label="Archivo"
+                        ToolTipService.ToolTip="Guardar o abrir proyecto">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xE8E5;" />
+                        </AppBarButton.Icon>
+
+                        <AppBarButton.Flyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem
+                                    Text="Abrir proyecto..."
+                                    Click="OnOpenProjectClick">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xE8E5;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
+                                <MenuFlyoutItem
+                                    Text="Guardar"
+                                    Click="OnSaveProjectClick">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xE74E;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
+                                <MenuFlyoutItem
+                                    Text="Guardar como..."
+                                    Click="OnSaveProjectAsClick">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xE792;" />
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+                            </MenuFlyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
+
+                    <AppBarButton
                         Label="Créditos"
                         ToolTipService.ToolTip="Acerca de Boing de Mango"
                         Click="OnCreditsClick">

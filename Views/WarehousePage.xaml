@@ -22,7 +22,7 @@
                             <RepositionThemeTransition />
                         </TransitionCollection>
                     </controls:SettingsExpander.Transitions>
-                    
+
                     <controls:SettingsExpander.HeaderIcon>
                         <FontIcon Glyph="&#xE7BF;" />
                     </controls:SettingsExpander.HeaderIcon>
@@ -128,14 +128,30 @@
                                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                             Text="Importes ($)" />
 
-                                        <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Entrada" />
-                                        <TextBlock Grid.Row="1" Grid.Column="4" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Salida" />
-                                        <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Existencia" />
-                                        <TextBlock Grid.Row="1" Grid.Column="6" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Entrada" />
-                                        <TextBlock Grid.Row="1" Grid.Column="7" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Salida" />
-                                        <TextBlock Grid.Row="1" Grid.Column="8" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Debe" />
-                                        <TextBlock Grid.Row="1" Grid.Column="9" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Haber" />
-                                        <TextBlock Grid.Row="1" Grid.Column="10" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Saldo" />
+                                        <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right"
+                                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                                   Style="{ThemeResource CaptionTextBlockStyle}" Text="Entrada" />
+                                        <TextBlock Grid.Row="1" Grid.Column="4" HorizontalAlignment="Right"
+                                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                                   Style="{ThemeResource CaptionTextBlockStyle}" Text="Salida" />
+                                        <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right"
+                                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                                   Style="{ThemeResource CaptionTextBlockStyle}" Text="Existencia" />
+                                        <TextBlock Grid.Row="1" Grid.Column="6" HorizontalAlignment="Right"
+                                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                                   Style="{ThemeResource CaptionTextBlockStyle}" Text="Entrada" />
+                                        <TextBlock Grid.Row="1" Grid.Column="7" HorizontalAlignment="Right"
+                                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                                   Style="{ThemeResource CaptionTextBlockStyle}" Text="Salida" />
+                                        <TextBlock Grid.Row="1" Grid.Column="8" HorizontalAlignment="Right"
+                                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                                   Style="{ThemeResource CaptionTextBlockStyle}" Text="Debe" />
+                                        <TextBlock Grid.Row="1" Grid.Column="9" HorizontalAlignment="Right"
+                                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                                   Style="{ThemeResource CaptionTextBlockStyle}" Text="Haber" />
+                                        <TextBlock Grid.Row="1" Grid.Column="10" HorizontalAlignment="Right"
+                                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                                   Style="{ThemeResource CaptionTextBlockStyle}" Text="Saldo" />
                                     </Grid>
                                 </ListView.Header>
 
@@ -156,17 +172,28 @@
                                                 <ColumnDefinition Width="100" />
                                             </Grid.ColumnDefinitions>
 
-                                            <TextBlock Grid.Column="0" Text="{x:Bind DateDisplay}" VerticalAlignment="Center" />
-                                            <TextBlock Grid.Column="1" Text="{x:Bind RefCode}" VerticalAlignment="Center" />
-                                            <TextBlock Grid.Column="2" Text="{x:Bind Concept}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" />
-                                            <TextBlock Grid.Column="3" Text="{x:Bind EntryUnitsDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                            <TextBlock Grid.Column="4" Text="{x:Bind ExitUnitsDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                            <TextBlock Grid.Column="5" Text="{x:Bind BalanceUnitsDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                            <TextBlock Grid.Column="6" Text="{x:Bind EntryUnitCostDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                            <TextBlock Grid.Column="7" Text="{x:Bind ExitUnitCostDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                            <TextBlock Grid.Column="8" Text="{x:Bind DebitDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                            <TextBlock Grid.Column="9" Text="{x:Bind CreditDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                            <TextBlock Grid.Column="10" Text="{x:Bind MonetaryBalanceDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="0" Text="{x:Bind DateDisplay}"
+                                                       VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="1" Text="{x:Bind RefCode}"
+                                                       VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="2" Text="{x:Bind Concept}"
+                                                       VerticalAlignment="Center" TextTrimming="CharacterEllipsis" />
+                                            <TextBlock Grid.Column="3" Text="{x:Bind EntryUnitsDisplay}"
+                                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="4" Text="{x:Bind ExitUnitsDisplay}"
+                                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="5" Text="{x:Bind BalanceUnitsDisplay}"
+                                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="6" Text="{x:Bind EntryUnitCostDisplay}"
+                                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="7" Text="{x:Bind ExitUnitCostDisplay}"
+                                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="8" Text="{x:Bind DebitDisplay}"
+                                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="9" Text="{x:Bind CreditDisplay}"
+                                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="10" Text="{x:Bind MonetaryBalanceDisplay}"
+                                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
                                         </Grid>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>

@@ -12,14 +12,11 @@ public sealed partial class WarehouseViewModel : ObservableObject
     public ObservableCollection<Purchase> SelectedMaterialPurchases { get; } = [];
     public ObservableCollection<Consumption> SelectedMaterialConsumptions { get; } = [];
 
-    [ObservableProperty]
-    private WarehouseCardResult? _selectedCard;
+    [ObservableProperty] private WarehouseCardResult? _selectedCard;
 
-    [ObservableProperty]
-    private Material? _selectedMaterial;
+    [ObservableProperty] private Material? _selectedMaterial;
 
-    [ObservableProperty]
-    private ValuationMethod _currentValuationMethod = ValuationMethod.Fifo;
+    [ObservableProperty] private ValuationMethod _currentValuationMethod = ValuationMethod.Fifo;
 
     public WarehouseViewModel(IProjectStateService stateService, IDialogService dialogService)
     {

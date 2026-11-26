@@ -6,7 +6,9 @@ public sealed partial class DepartmentDialogViewModel : DialogViewModel
     private readonly Dictionary<string, decimal> _preservedMetrics;
 
     public IReadOnlyList<string> TypeOptions { get; } = ["Productivo", "De servicio"];
-    public IReadOnlyList<string> SecondaryBaseOptions { get; } = ["Horas-máquina", "Materia prima", "Metros cuadrados", "Kilowatts"];
+
+    public IReadOnlyList<string> SecondaryBaseOptions { get; } =
+        ["Horas-máquina", "Materia prima", "Metros cuadrados", "Kilowatts"];
 
     public string Alias { get; }
     public string DialogTitle { get; }
@@ -15,34 +17,26 @@ public sealed partial class DepartmentDialogViewModel : DialogViewModel
 
     public Department? ResultDepartment { get; private set; }
 
-    [ObservableProperty]
-    public partial string Name { get; set; } = string.Empty;
+    [ObservableProperty] public partial string Name { get; set; } = string.Empty;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(ProductiveVisibility))]
     [NotifyPropertyChangedFor(nameof(ServiceVisibility))]
     public partial int SelectedTypeIndex { get; set; }
 
-    [ObservableProperty]
-    public partial double DirectLaborHourlyRate { get; set; }
+    [ObservableProperty] public partial double DirectLaborHourlyRate { get; set; }
 
-    [ObservableProperty]
-    public partial double SecondaryCloseOrder { get; set; } = 1;
+    [ObservableProperty] public partial double SecondaryCloseOrder { get; set; } = 1;
 
-    [ObservableProperty]
-    public partial string SecondaryAllocationBaseKey { get; set; } = "Horas-máquina";
+    [ObservableProperty] public partial string SecondaryAllocationBaseKey { get; set; } = "Horas-máquina";
 
-    [ObservableProperty]
-    public partial double SquareMeters { get; set; }
+    [ObservableProperty] public partial double SquareMeters { get; set; }
 
-    [ObservableProperty]
-    public partial double Kilowatts { get; set; }
+    [ObservableProperty] public partial double Kilowatts { get; set; }
 
-    [ObservableProperty]
-    public partial double MachineHours { get; set; }
+    [ObservableProperty] public partial double MachineHours { get; set; }
 
-    [ObservableProperty]
-    public partial double RawMaterialBase { get; set; }
+    [ObservableProperty] public partial double RawMaterialBase { get; set; }
 
     public Visibility ProductiveVisibility => SelectedTypeIndex == 0 ? Visibility.Visible : Visibility.Collapsed;
     public Visibility ServiceVisibility => SelectedTypeIndex == 1 ? Visibility.Visible : Visibility.Collapsed;
@@ -56,7 +50,8 @@ public sealed partial class DepartmentDialogViewModel : DialogViewModel
             _departmentId = $"DEP-{Guid.NewGuid().ToString("N")[..6].ToUpperInvariant()}";
             _preservedMetrics = [];
             DialogTitle = "Nuevo departamento";
-            DialogCaption = "Define un departamento productivo o de servicio, su tarifa de mano de obra directa y sus bases métricas.";
+            DialogCaption =
+                "Define un departamento productivo o de servicio, su tarifa de mano de obra directa y sus bases métricas.";
             SubmitButtonText = "Agregar";
         }
         else
@@ -108,7 +103,8 @@ public sealed partial class DepartmentDialogViewModel : DialogViewModel
 
         if (!isProductive && string.IsNullOrWhiteSpace(SecondaryAllocationBaseKey))
         {
-            ShowError("Base de cierre requerida", "Indica la base con la que se cerrará este departamento de servicio.");
+            ShowError("Base de cierre requerida",
+                "Indica la base con la que se cerrará este departamento de servicio.");
             return Task.CompletedTask;
         }
 
