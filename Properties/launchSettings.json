@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Boing (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Boing (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

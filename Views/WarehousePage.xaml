@@ -1,0 +1,187 @@
+<Page
+    x:Class="Boing.Views.WarehousePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    xmlns:local="using:Boing.Views">
+
+    <ItemsRepeater ItemsSource="{x:Bind DisplayCards}" Margin="0,0,48,48">
+        <ItemsRepeater.Layout>
+            <StackLayout Spacing="4" />
+        </ItemsRepeater.Layout>
+
+        <ItemsRepeater.ItemTemplate>
+            <DataTemplate x:DataType="local:WarehouseCardDisplayItem">
+                <controls:SettingsExpander
+                    IsExpanded="True"
+                    Header="{x:Bind MaterialName}"
+                    Description="{x:Bind SummaryDescription}">
+
+                    <controls:SettingsExpander.Transitions>
+                        <TransitionCollection>
+                            <RepositionThemeTransition />
+                        </TransitionCollection>
+                    </controls:SettingsExpander.Transitions>
+                    
+                    <controls:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xE7BF;" />
+                    </controls:SettingsExpander.HeaderIcon>
+
+                    <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+                        <CheckBox
+                            Visibility="{x:Bind SelectionVisibility, Mode=OneWay}"
+                            IsChecked="{x:Bind IsSelected, Mode=OneWay}"
+                            Tag="{x:Bind MaterialId}"
+                            Click="OnCardCheckBoxClick"
+                            MinWidth="0" />
+
+                        <Button
+                            Tag="{x:Bind MaterialId}"
+                            Click="OnAddOperationClick">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <FontIcon Glyph="&#xE710;" FontSize="14" />
+                                <TextBlock Text="Registrar movimiento" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard
+                            ContentAlignment="Vertical"
+                            HorizontalContentAlignment="Stretch">
+
+                            <ListView
+                                ItemsSource="{x:Bind Rows}"
+                                SelectionMode="None"
+                                IsItemClickEnabled="True"
+                                ItemClick="OnRowItemClick"
+                                ScrollViewer.VerticalScrollMode="Disabled"
+                                ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                                <ListView.Header>
+                                    <Grid Padding="16,8" ColumnSpacing="24" RowSpacing="4">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90" />
+                                            <ColumnDefinition Width="85" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="80" />
+                                            <ColumnDefinition Width="80" />
+                                            <ColumnDefinition Width="85" />
+                                            <ColumnDefinition Width="85" />
+                                            <ColumnDefinition Width="85" />
+                                            <ColumnDefinition Width="95" />
+                                            <ColumnDefinition Width="95" />
+                                            <ColumnDefinition Width="100" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock
+                                            Grid.Row="0"
+                                            Grid.RowSpan="2"
+                                            Grid.Column="0"
+                                            VerticalAlignment="Center"
+                                            Style="{ThemeResource CaptionTextBlockStyle}"
+                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                            Text="Fecha" />
+                                        <TextBlock
+                                            Grid.Row="0"
+                                            Grid.RowSpan="2"
+                                            Grid.Column="1"
+                                            VerticalAlignment="Center"
+                                            Style="{ThemeResource CaptionTextBlockStyle}"
+                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                            Text="Ref" />
+                                        <TextBlock
+                                            Grid.Row="0"
+                                            Grid.RowSpan="2"
+                                            Grid.Column="2"
+                                            VerticalAlignment="Center"
+                                            Style="{ThemeResource CaptionTextBlockStyle}"
+                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                            Text="Concepto" />
+
+                                        <TextBlock
+                                            Grid.Row="0"
+                                            Grid.Column="3"
+                                            Grid.ColumnSpan="3"
+                                            HorizontalAlignment="Right"
+                                            Style="{ThemeResource CaptionTextBlockStyle}"
+                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                            Text="{x:Bind UnitsHeader}" />
+                                        <TextBlock
+                                            Grid.Row="0"
+                                            Grid.Column="6"
+                                            Grid.ColumnSpan="2"
+                                            HorizontalAlignment="Right"
+                                            Style="{ThemeResource CaptionTextBlockStyle}"
+                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                            Text="Costo unitario ($)" />
+                                        <TextBlock
+                                            Grid.Row="0"
+                                            Grid.Column="8"
+                                            Grid.ColumnSpan="3"
+                                            HorizontalAlignment="Right"
+                                            Style="{ThemeResource CaptionTextBlockStyle}"
+                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                            Text="Importes ($)" />
+
+                                        <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Entrada" />
+                                        <TextBlock Grid.Row="1" Grid.Column="4" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Salida" />
+                                        <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Existencia" />
+                                        <TextBlock Grid.Row="1" Grid.Column="6" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Entrada" />
+                                        <TextBlock Grid.Row="1" Grid.Column="7" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Salida" />
+                                        <TextBlock Grid.Row="1" Grid.Column="8" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Debe" />
+                                        <TextBlock Grid.Row="1" Grid.Column="9" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Haber" />
+                                        <TextBlock Grid.Row="1" Grid.Column="10" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" Text="Saldo" />
+                                    </Grid>
+                                </ListView.Header>
+
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="local:WarehouseRowDisplayItem">
+                                        <Grid ColumnSpacing="24">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="90" />
+                                                <ColumnDefinition Width="85" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="80" />
+                                                <ColumnDefinition Width="80" />
+                                                <ColumnDefinition Width="85" />
+                                                <ColumnDefinition Width="85" />
+                                                <ColumnDefinition Width="85" />
+                                                <ColumnDefinition Width="95" />
+                                                <ColumnDefinition Width="95" />
+                                                <ColumnDefinition Width="100" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Grid.Column="0" Text="{x:Bind DateDisplay}" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="1" Text="{x:Bind RefCode}" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="2" Text="{x:Bind Concept}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" />
+                                            <TextBlock Grid.Column="3" Text="{x:Bind EntryUnitsDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="4" Text="{x:Bind ExitUnitsDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="5" Text="{x:Bind BalanceUnitsDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="6" Text="{x:Bind EntryUnitCostDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="7" Text="{x:Bind ExitUnitCostDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="8" Text="{x:Bind DebitDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="9" Text="{x:Bind CreditDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="10" Text="{x:Bind MonetaryBalanceDisplay}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+
+                                <ListView.ItemContainerStyle>
+                                    <Style BasedOn="{StaticResource DefaultListViewItemStyle}"
+                                           TargetType="ListViewItem">
+                                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                            </ListView>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
+            </DataTemplate>
+        </ItemsRepeater.ItemTemplate>
+    </ItemsRepeater>
+</Page>

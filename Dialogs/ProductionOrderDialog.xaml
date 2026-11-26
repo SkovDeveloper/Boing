@@ -1,0 +1,105 @@
+<ContentDialog
+    x:Class="Boing.Dialogs.ProductionOrderDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Boing.UIControls"
+    xmlns:vm="using:Boing.ViewModels"
+    Style="{ThemeResource DefaultContentDialogStyle}">
+
+    <controls:DialogTemplateControl
+        Width="440"
+        Title="{x:Bind ViewModel.DialogTitle}"
+        Caption="{x:Bind ViewModel.DialogCaption}"
+        SubmitButtonText="{x:Bind ViewModel.SubmitButtonText}"
+        ViewModel="{x:Bind ViewModel}">
+
+        <StackPanel GotFocus="{x:Bind ViewModel.HideNotification}" Spacing="16">
+            <Grid ColumnSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBox
+                    Grid.Column="0"
+                    Header="Folio de orden"
+                    PlaceholderText="Ej. SkO:004v"
+                    Text="{x:Bind ViewModel.Code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    HorizontalAlignment="Stretch" />
+
+                <ComboBox
+                    Grid.Column="1"
+                    Header="Estado"
+                    ItemsSource="{x:Bind ViewModel.StatusOptions}"
+                    SelectedIndex="{x:Bind ViewModel.SelectedStatusIndex, Mode=TwoWay}"
+                    HorizontalAlignment="Stretch" />
+            </Grid>
+
+            <Grid ColumnSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <NumberBox
+                    Grid.Column="0"
+                    Header="Unidades producidas"
+                    Minimum="0"
+                    SpinButtonPlacementMode="Compact"
+                    Value="{x:Bind ViewModel.ProducedUnits, Mode=TwoWay}"
+                    HorizontalAlignment="Stretch" />
+
+                <NumberBox
+                    Grid.Column="1"
+                    Header="Unidades vendidas"
+                    Visibility="{x:Bind ViewModel.SoldUnitsVisibility, Mode=OneWay}"
+                    Minimum="0"
+                    SpinButtonPlacementMode="Compact"
+                    Value="{x:Bind ViewModel.SoldUnits, Mode=TwoWay}"
+                    HorizontalAlignment="Stretch" />
+            </Grid>
+
+            <NumberBox
+                Header="Inventario inicial en proceso ($)"
+                Minimum="0"
+                SpinButtonPlacementMode="Compact"
+                Value="{x:Bind ViewModel.InitialWorkInProcessCost, Mode=TwoWay}"
+                HorizontalAlignment="Stretch" />
+
+            <StackPanel Spacing="8">
+                <TextBlock
+                    Text="Horas de mano de obra directa (MOD)"
+                    Style="{ThemeResource BodyStrongTextBlockStyle}" />
+
+                <ItemsRepeater ItemsSource="{x:Bind ViewModel.LaborEntries}">
+                    <ItemsRepeater.Layout>
+                        <StackLayout Spacing="8" />
+                    </ItemsRepeater.Layout>
+                    <ItemsRepeater.ItemTemplate>
+                        <DataTemplate x:DataType="vm:LaborEntryInputItem">
+                            <Grid ColumnSpacing="12">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="130" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock
+                                    Grid.Column="0"
+                                    Text="{x:Bind DepartmentName}"
+                                    VerticalAlignment="Center"
+                                    TextTrimming="CharacterEllipsis" />
+
+                                <NumberBox
+                                    Grid.Column="1"
+                                    Minimum="0"
+                                    SpinButtonPlacementMode="Compact"
+                                    Value="{x:Bind Hours, Mode=TwoWay}"
+                                    HorizontalAlignment="Stretch" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsRepeater.ItemTemplate>
+                </ItemsRepeater>
+            </StackPanel>
+        </StackPanel>
+    </controls:DialogTemplateControl>
+</ContentDialog>

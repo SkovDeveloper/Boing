@@ -1,0 +1,68 @@
+﻿<ContentDialog x:ConnectionId='1'
+    x:Class="Boing.Dialogs.MovementDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Boing.UIControls"
+    Style="{ThemeResource DefaultContentDialogStyle}">
+
+    <controls:DialogTemplateControl x:ConnectionId='2'
+        Width="420"
+                                              
+                                                  
+                                                              
+                                      >
+
+        <StackPanel x:ConnectionId='3'                                                Spacing="16">
+            <ComboBox x:ConnectionId='4'
+                Header="Tipo de movimiento"
+                                                                    
+                                                                                         
+                                                                          
+                HorizontalAlignment="Stretch" />
+
+            <Grid ColumnSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <CalendarDatePicker x:ConnectionId='9'
+                    Grid.Column="0"
+                    Header="Fecha"
+                                                               
+                    HorizontalAlignment="Stretch" />
+
+                <NumberBox x:ConnectionId='10'
+                    Grid.Column="1"
+                    Header="Cantidad"
+                    Minimum="0"
+                    SpinButtonPlacementMode="Compact"
+                                                                    
+                    HorizontalAlignment="Stretch" />
+            </Grid>
+
+            <StackPanel x:ConnectionId='5'                                                                 Spacing="8">
+                <NumberBox x:ConnectionId='7'
+                    Header="Costo unitario ($)"
+                    Minimum="0"
+                    SpinButtonPlacementMode="Compact"
+                                                                    
+                    HorizontalAlignment="Stretch" />
+
+                <TextBlock x:ConnectionId='8'
+                                                                             
+                    Style="{ThemeResource CaptionTextBlockStyle}"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+            </StackPanel>
+
+            <ComboBox x:ConnectionId='6'
+                Header="Orden de producción"
+                                                                                  
+                                                       
+                                                                            
+                DisplayMemberPath="Code"
+                HorizontalAlignment="Stretch" />
+        </StackPanel>
+    </controls:DialogTemplateControl>
+</ContentDialog>
+

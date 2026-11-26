@@ -1,0 +1,67 @@
+<ContentDialog
+    x:Class="Boing.Dialogs.MovementDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Boing.UIControls"
+    Style="{ThemeResource DefaultContentDialogStyle}">
+
+    <controls:DialogTemplateControl
+        Width="420"
+        Title="{x:Bind ViewModel.DialogTitle}"
+        Caption="{x:Bind ViewModel.DialogCaption}"
+        SubmitButtonText="{x:Bind ViewModel.SubmitButtonText}"
+        ViewModel="{x:Bind ViewModel}">
+
+        <StackPanel GotFocus="{x:Bind ViewModel.HideNotification}" Spacing="16">
+            <ComboBox
+                Header="Tipo de movimiento"
+                ItemsSource="{x:Bind ViewModel.MovementTypeOptions}"
+                SelectedIndex="{x:Bind ViewModel.SelectedMovementTypeIndex, Mode=TwoWay}"
+                IsEnabled="{x:Bind ViewModel.IsTypeEditable, Mode=OneWay}"
+                HorizontalAlignment="Stretch" />
+
+            <Grid ColumnSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <CalendarDatePicker
+                    Grid.Column="0"
+                    Header="Fecha"
+                    Date="{x:Bind ViewModel.Date, Mode=TwoWay}"
+                    HorizontalAlignment="Stretch" />
+
+                <NumberBox
+                    Grid.Column="1"
+                    Header="Cantidad"
+                    Minimum="0"
+                    SpinButtonPlacementMode="Compact"
+                    Value="{x:Bind ViewModel.Quantity, Mode=TwoWay}"
+                    HorizontalAlignment="Stretch" />
+            </Grid>
+
+            <StackPanel Visibility="{x:Bind ViewModel.PurchaseVisibility, Mode=OneWay}" Spacing="8">
+                <NumberBox
+                    Header="Costo unitario ($)"
+                    Minimum="0"
+                    SpinButtonPlacementMode="Compact"
+                    Value="{x:Bind ViewModel.UnitCost, Mode=TwoWay}"
+                    HorizontalAlignment="Stretch" />
+
+                <TextBlock
+                    Text="{x:Bind ViewModel.EstimatedTotalText, Mode=OneWay}"
+                    Style="{ThemeResource CaptionTextBlockStyle}"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+            </StackPanel>
+
+            <ComboBox
+                Header="Orden de producción"
+                Visibility="{x:Bind ViewModel.ConsumptionVisibility, Mode=OneWay}"
+                ItemsSource="{x:Bind ViewModel.Orders}"
+                SelectedItem="{x:Bind ViewModel.SelectedOrder, Mode=TwoWay}"
+                DisplayMemberPath="Code"
+                HorizontalAlignment="Stretch" />
+        </StackPanel>
+    </controls:DialogTemplateControl>
+</ContentDialog>

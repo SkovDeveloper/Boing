@@ -1,0 +1,16 @@
+App.xbf
+Dialogs\CreditsDialog.xbf
+Dialogs\DepartmentDialog.xbf
+Dialogs\InitialFinishedGoodsDialog.xbf
+Dialogs\MaterialDialog.xbf
+Dialogs\MovementDialog.xbf
+Dialogs\OverheadExpenseDialog.xbf
+Dialogs\ProductionOrderDialog.xbf
+Dialogs\StatementMetadataDialog.xbf
+Dialogs\StatementParametersDialog.xbf
+MainWindow.xbf
+UIControls\DialogTemplateControl.xbf
+Views\EcpvPage.xbf
+Views\MainPage.xbf
+Views\ProrationPage.xbf
+Views\WarehousePage.xbf

@@ -1,0 +1,47 @@
+<ContentDialog
+    x:Class="Boing.Dialogs.StatementParametersDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Boing.UIControls"
+    Style="{ThemeResource DefaultContentDialogStyle}">
+
+    <controls:DialogTemplateControl
+        Width="420"
+        Title="{x:Bind ViewModel.DialogTitle}"
+        Caption="{x:Bind ViewModel.DialogCaption}"
+        SubmitButtonText="{x:Bind ViewModel.SubmitButtonText}"
+        ViewModel="{x:Bind ViewModel}">
+
+        <StackPanel GotFocus="{x:Bind ViewModel.HideNotification}" Spacing="16">
+            <NumberBox
+                Header="Inventario inicial de artículos terminados ($)"
+                Minimum="0"
+                SpinButtonPlacementMode="Compact"
+                Value="{x:Bind ViewModel.InitialFinishedGoods, Mode=TwoWay}"
+                HorizontalAlignment="Stretch" />
+
+            <Grid ColumnSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <NumberBox
+                    Grid.Column="0"
+                    Header="Gastos de venta ($)"
+                    Minimum="0"
+                    SpinButtonPlacementMode="Compact"
+                    Value="{x:Bind ViewModel.SellingExpenses, Mode=TwoWay}"
+                    HorizontalAlignment="Stretch" />
+
+                <NumberBox
+                    Grid.Column="1"
+                    Header="Gastos de administración ($)"
+                    Minimum="0"
+                    SpinButtonPlacementMode="Compact"
+                    Value="{x:Bind ViewModel.AdminExpenses, Mode=TwoWay}"
+                    HorizontalAlignment="Stretch" />
+            </Grid>
+        </StackPanel>
+    </controls:DialogTemplateControl>
+</ContentDialog>

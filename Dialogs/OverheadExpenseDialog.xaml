@@ -1,0 +1,61 @@
+<ContentDialog
+    x:Class="Boing.Dialogs.OverheadExpenseDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Boing.UIControls"
+    Style="{ThemeResource DefaultContentDialogStyle}">
+
+    <controls:DialogTemplateControl
+        Width="420"
+        Title="{x:Bind ViewModel.DialogTitle}"
+        Caption="{x:Bind ViewModel.DialogCaption}"
+        SubmitButtonText="{x:Bind ViewModel.SubmitButtonText}"
+        ViewModel="{x:Bind ViewModel}">
+
+        <StackPanel GotFocus="{x:Bind ViewModel.HideNotification}" Spacing="16">
+            <TextBox
+                Header="Concepto del gasto"
+                PlaceholderText="Ej. Renta de planta"
+                Text="{x:Bind ViewModel.Concept, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                HorizontalAlignment="Stretch" />
+
+            <Grid ColumnSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <NumberBox
+                    Grid.Column="0"
+                    Header="Monto ($)"
+                    Minimum="0"
+                    SpinButtonPlacementMode="Compact"
+                    Value="{x:Bind ViewModel.Amount, Mode=TwoWay}"
+                    HorizontalAlignment="Stretch" />
+
+                <ComboBox
+                    Grid.Column="1"
+                    Header="Tipo de distribución"
+                    ItemsSource="{x:Bind ViewModel.AllocationTypeOptions}"
+                    SelectedIndex="{x:Bind ViewModel.SelectedAllocationTypeIndex, Mode=TwoWay}"
+                    HorizontalAlignment="Stretch" />
+            </Grid>
+
+            <ComboBox
+                Header="Base métrica"
+                IsEditable="True"
+                Visibility="{x:Bind ViewModel.MetricVisibility, Mode=OneWay}"
+                ItemsSource="{x:Bind ViewModel.MetricBaseOptions}"
+                Text="{x:Bind ViewModel.AllocationBaseKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                HorizontalAlignment="Stretch" />
+
+            <ComboBox
+                Header="Departamento destino"
+                Visibility="{x:Bind ViewModel.DirectVisibility, Mode=OneWay}"
+                ItemsSource="{x:Bind ViewModel.Departments}"
+                SelectedItem="{x:Bind ViewModel.SelectedTargetDepartment, Mode=TwoWay}"
+                DisplayMemberPath="Name"
+                HorizontalAlignment="Stretch" />
+        </StackPanel>
+    </controls:DialogTemplateControl>
+</ContentDialog>

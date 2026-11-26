@@ -1,0 +1,10 @@
+global using CommunityToolkit.Mvvm.ComponentModel;
+global using CommunityToolkit.Mvvm.Input;
+global using Boing.ViewModels;
+global using Boing.Interfaces;
+global using Boing.Models;
+global using Boing.Dialogs;
+global using Boing.Views;
+global using Boing.Services;
+global using Microsoft.UI.Xaml;
+global using Microsoft.UI.Xaml.Controls;

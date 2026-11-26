@@ -1,0 +1,111 @@
+﻿<Page
+    x:Class="Boing.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="Transparent">
+
+    <Grid Padding="48,48,0,0" RowSpacing="48">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" ColumnSpacing="24" Padding="0,0,48,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Spacing="4" VerticalAlignment="Center">
+                <TextBlock x:ConnectionId='9'
+                    x:Name="HeaderTitle"
+                    Style="{ThemeResource TitleTextBlockStyle}"
+                    Text="Tarjetas de almacén"
+                    VerticalAlignment="Center" />
+                <TextBlock x:ConnectionId='10'
+                    x:Name="HeaderSubtitle"
+                    Style="{ThemeResource BodyTextBlockStyle}"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    Text="Cargando escenario..." />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Column="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Spacing="8">
+
+                <CommandBar x:ConnectionId='4'
+                    x:Name="DynamicCommandBar"
+                    Background="Transparent"
+                    DefaultLabelPosition="Right"
+                    OverflowButtonVisibility="Collapsed"
+                    IsOpen="False" />
+
+                <Border
+                    Width="1"
+                    Height="24"
+                    VerticalAlignment="Center"
+                    Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
+
+                <CommandBar
+                    Background="Transparent"
+                    DefaultLabelPosition="Right"
+                    OverflowButtonVisibility="Collapsed"
+                    IsOpen="False">
+
+                    <AppBarButton x:ConnectionId='5'
+                        Label="Almacén"
+                        Tag="Warehouse"
+                        ToolTipService.ToolTip="Tarjetas de almacén"
+                                                       >
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xE8C7;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+
+                    <AppBarButton x:ConnectionId='6'
+                        Tag="Proration"
+                        Label="Prorrateos"
+                        ToolTipService.ToolTip="Prorrateos y costo unitario"
+                                                       >
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xEABB;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+
+                    <AppBarButton x:ConnectionId='7'
+                        Tag="Ecpv"
+                        Label="Estados"
+                        ToolTipService.ToolTip="Estados financieros"
+                                                       >
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xE8AE;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+
+                    <AppBarButton x:ConnectionId='8'
+                        Label="Créditos"
+                        ToolTipService.ToolTip="Acerca de Boing de Mango"
+                                              >
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xE946;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                </CommandBar>
+            </StackPanel>
+        </Grid>
+
+        <ScrollViewer x:ConnectionId='2'
+            x:Name="MainScrollViewer"
+            Grid.Row="1"
+            VerticalScrollBarVisibility="Auto"
+            HorizontalScrollBarVisibility="Disabled">
+            <Frame x:ConnectionId='3'
+                x:Name="MainPageFrame"
+                                                     />
+        </ScrollViewer>
+    </Grid>
+</Page>
+
