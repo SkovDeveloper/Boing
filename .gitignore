@@ -1,0 +1,9 @@
+bin/
+obj/
+Publish/
+.idea/
+.vs/
+*.user
+*.DotSettings.user
+*.suo
+*.tmp
